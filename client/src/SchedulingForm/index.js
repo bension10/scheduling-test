@@ -20,6 +20,12 @@ const maxMonthDay = {
   12: 31
 };
 
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+`;
+
 const InputField = styled.input`
   margin-right: 8px;
   &:last-child {
@@ -38,8 +44,10 @@ const InputTextField = styled.input`
   width: 100px;
 `;
 
-const Wrapper = styled.div`
-  display: flex;
+const Label = styled.label`
+  height: 30px;
+  line-height: 36px;
+  margin-right: 8px;
 `;
 
 const workWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -82,7 +90,7 @@ const SchedulingForm = () => {
 
   return (
     <Wrapper>
-      <span>Start Date:</span>
+      <Label>Start Date:</Label>
       <InputTextField
         type="text"
         name="name"
@@ -120,16 +128,20 @@ const SchedulingForm = () => {
       <InputField
         type="number"
         name="hour"
-        placeholder="Start"
+        placeholder="hr"
         pattern="\d*"
+        min={0}
+        max={23}
         inputMode="numeric"
         onChange={handleChange}
       />
       <InputField
         type="number"
         name="minutes"
-        placeholder="End"
+        placeholder="mn"
         pattern="\d*"
+        min={0}
+        max={59}
         inputMode="numeric"
         onChange={handleChange}
       />

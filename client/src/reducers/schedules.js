@@ -3,6 +3,7 @@ const schedules = (state = [], action) => {
     case 'FETCH_ALL':
       return action.payload;
     case 'CREATE':
+      // return [...state.schedules, action.payload];
       return state;
     default:
       return state;
