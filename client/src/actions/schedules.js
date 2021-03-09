@@ -1,7 +1,9 @@
 import * as API from '../api';
 import {
   FETCH_ALL,
-  CREATE_SCHEDULE
+  CREATE_SCHEDULE,
+  DELETE_SCHEDULE,
+  UPDATE_SCHEDULE
 } from '../constants/actionTypes';
 
 export const getSchedules = () => async dispatch => {
@@ -20,6 +22,26 @@ export const createSchedule = schedule => async dispatch => {
     dispatch({ type: CREATE_SCHEDULE, payload: data});
     // dispatch(getSchedules);
   } catch(error) {
+    console.log(error.message);
+  }
+}
+
+export const updateSchedule = (id, newSchedule) => async dispatch => {
+  try {
+    const { data } = await API.updateSchedule(id, newSchedule);
+
+    dispatch({ type: UPDATE_SCHEDULE, payload: data });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export const deleteSchedule = id => async dispatch => {
+  try {
+    const { data } = await API.deleteSchedule(id);
+
+    dispatch({ type: DELETE_SCHEDULE, payload: data });
+  } catch (error) {
     console.log(error.message);
   }
 }
