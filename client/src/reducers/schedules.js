@@ -1,12 +1,16 @@
-const schedules = (state = [], action) => {
+import {
+  FETCH_ALL,
+  CREATE_SCHEDULE
+} from '../constants/actionTypes';
+
+const schedules = (schedules = [], action) => {
   switch(action.type) {
-    case 'FETCH_ALL':
+    case FETCH_ALL:
       return action.payload;
-    case 'CREATE':
-      // return [...state.schedules, action.payload];
-      return state;
+    case CREATE_SCHEDULE:
+      return [...schedules, action.payload];
     default:
-      return state;
+      return schedules;
   }
 }
 
