@@ -5,7 +5,7 @@ import SchedulingForm from '../SchedulingForm';
 
 const ScheduleList = () => {
   const schedules = useSelector(state => state.schedules);
-  console.log(schedules);
+  console.log('schedules ', schedules);
 
   return (
     <>
