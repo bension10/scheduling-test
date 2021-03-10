@@ -16,6 +16,7 @@ export const getSchedules = () => async dispatch => {
 };
 
 export const createSchedule = schedule => async dispatch => {
+  console.log('schedule ', schedule);
   try {
     const { data } = await API.createSchedule(schedule);
 
@@ -38,9 +39,9 @@ export const updateSchedule = (id, newSchedule) => async dispatch => {
 
 export const deleteSchedule = id => async dispatch => {
   try {
-    const { data } = await API.deleteSchedule(id);
+    await API.deleteSchedule(id);
 
-    dispatch({ type: DELETE_SCHEDULE, payload: data });
+    dispatch({ type: DELETE_SCHEDULE, payload: id });
   } catch (error) {
     console.log(error.message);
   }

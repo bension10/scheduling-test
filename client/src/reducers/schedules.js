@@ -1,6 +1,7 @@
 import {
   FETCH_ALL,
-  CREATE_SCHEDULE
+  CREATE_SCHEDULE,
+  DELETE_SCHEDULE
 } from '../constants/actionTypes';
 
 const schedules = (schedules = [], action) => {
@@ -9,6 +10,8 @@ const schedules = (schedules = [], action) => {
       return action.payload;
     case CREATE_SCHEDULE:
       return [...schedules, action.payload];
+    case DELETE_SCHEDULE:
+      return schedules.filter(schedule => schedule._id !== action.payload);
     default:
       return schedules;
   }
