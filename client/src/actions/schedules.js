@@ -16,7 +16,6 @@ export const getSchedules = () => async dispatch => {
 };
 
 export const createSchedule = schedule => async dispatch => {
-  console.log('schedule ', schedule);
   try {
     const { data } = await API.createSchedule(schedule);
 

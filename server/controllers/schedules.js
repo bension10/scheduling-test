@@ -28,7 +28,6 @@ export const createSchedule = async (req, res) => {
 
 export const deleteSchedule = async (req, res) => {
   const { id } = req.params;
-  console.log('id ', id)
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).send(`{Schedule not found}`);
